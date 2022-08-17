@@ -7,22 +7,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
-public class TipoDocumentoDTO {
+public class TipoContribuyenteDTO {
 
-    private Integer idTipoDocumento;
-    @NotNull
-    @Size( max = 20)
-    @NotBlank
-    private String codigo;
+    private Integer idTipoContribuyente;
     @NotNull
     @NotBlank
-    @Size( max = 100)
+    @Size( max = 50)
     private String nombre;
+
+
     @NotNull
     @NotBlank
-    private String descripcion;
-//    @NotNull
-//    @NotBlank
     private Boolean estado;
-
 }
