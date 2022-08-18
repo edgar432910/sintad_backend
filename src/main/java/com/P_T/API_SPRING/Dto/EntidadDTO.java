@@ -12,7 +12,6 @@ public class EntidadDTO {
 
 
     @NotNull
-    @NotBlank
     private TipoDocumentoDTO tipoDocumento;
 
     @NotNull
@@ -28,7 +27,6 @@ public class EntidadDTO {
     private String nombreComercial;
 
     @NotNull
-    @NotBlank
     private TipoContribuyenteDTO tipoContribuyente;
 
     @NotNull

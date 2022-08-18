@@ -16,7 +16,7 @@ public class TipoContribuyenteDTO {
     private String nombre;
 
 
-    @NotNull
-    @NotBlank
+//    @NotNull
+//    @NotBlank
     private Boolean estado;
 }

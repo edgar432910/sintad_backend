@@ -71,6 +71,7 @@ public class EntidadController {
 
     @PutMapping
     public ResponseEntity<EntidadDTO> modificar(@Valid @RequestBody EntidadDTO dto) throws Exception {
+        System.out.println("DTO_ID : " +dto.getIdEntidad());
         Entidad obj = service.listarPorId(dto.getIdEntidad());
 
         if(obj == null) {
