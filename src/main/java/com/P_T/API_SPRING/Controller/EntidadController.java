@@ -62,6 +62,7 @@ public class EntidadController {
     @PostMapping
     public ResponseEntity<Void> registrar(@Valid @RequestBody EntidadDTO dto) throws Exception {
         Entidad p = mapper.map(dto, Entidad.class);
+        p.setEstado(true);
         Entidad obj = service.registrar(p);
 
         //localhost:8080/Entidads/5
@@ -91,7 +92,9 @@ public class EntidadController {
         if(obj == null) {
             throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
         }
-        service.eliminar(id);
+        obj.setEstado(false);
+
+        service.modificar(obj);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

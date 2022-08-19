@@ -22,7 +22,8 @@ public abstract class CrudImpl<T,ID> implements ICrud<T,ID> {
 
     @Override
     public List<T> listar() throws Exception {
-        return getRepo().findAll();
+//        return getRepo().findAll();
+        return getRepo().findByEstado(true);
     }
 
     @Override
@@ -33,6 +34,9 @@ public abstract class CrudImpl<T,ID> implements ICrud<T,ID> {
     @Override
     public void eliminar(ID id) throws Exception {
         getRepo().deleteById(id);
+//        T object = getRepo().findById(id).orElse(null);
+
+//        return getRepo().save(p);
     }
 
 }

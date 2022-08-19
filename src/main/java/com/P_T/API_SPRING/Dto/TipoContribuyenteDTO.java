@@ -18,5 +18,5 @@ public class TipoContribuyenteDTO {
 
 //    @NotNull
 //    @NotBlank
-    private Boolean estado;
+//    private Boolean estado;
 }

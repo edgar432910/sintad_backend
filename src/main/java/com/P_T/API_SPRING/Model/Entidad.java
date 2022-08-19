@@ -26,6 +26,8 @@ public class Entidad {
     private String direccion;
     private String telefono;
 
+//    @Column(nullable = false)
+    @Column(name = "estado",  columnDefinition = "boolean default true")
     private Boolean estado;
 
 }

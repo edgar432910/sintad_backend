@@ -40,6 +40,6 @@ public class EntidadDTO {
 
 //    @NotNull
 //    @NotBlank
-    private Boolean estado;
+//    private Boolean estado;
 
 }

@@ -7,6 +7,8 @@ import com.P_T.API_SPRING.Service.ITipoContribuyenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TipoContribuyenteServiceImpl extends CrudImpl<TipoContribuyente,Integer> implements ITipoContribuyenteService {
     @Autowired
@@ -15,5 +17,18 @@ public class TipoContribuyenteServiceImpl extends CrudImpl<TipoContribuyente,Int
     @Override
     protected IGerenicRepository<TipoContribuyente, Integer> getRepo() {
         return repo;
+    }
+
+
+    @Override
+    public List<TipoContribuyente> listar() throws Exception {
+        return getRepo().findAll();
+
+    }
+
+    @Override
+    public List<TipoContribuyente> TIPO_CONTRIBUYENTE_LIST() throws Exception {
+
+        return null;
     }
 }

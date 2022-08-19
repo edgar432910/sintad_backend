@@ -23,6 +23,6 @@ public class TipoDocumentoDTO {
     private String descripcion;
 //    @NotNull
 //    @NotBlank
-    private Boolean estado;
+//    private Boolean estado;
 
 }

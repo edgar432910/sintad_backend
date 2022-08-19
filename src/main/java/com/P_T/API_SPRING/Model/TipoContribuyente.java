@@ -2,10 +2,7 @@ package com.P_T.API_SPRING.Model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -15,5 +12,6 @@ public class TipoContribuyente {
 
     private Integer idTipoContribuyente;
     private String nombre;
+    @Column(name = "estado",  columnDefinition = "boolean default true")
     private Boolean estado;
 }

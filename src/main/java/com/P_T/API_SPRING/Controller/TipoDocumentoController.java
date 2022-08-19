@@ -63,6 +63,7 @@ public class TipoDocumentoController {
     @PostMapping
     public ResponseEntity<Void> registrar(@Valid @RequestBody TipoDocumentoDTO dto) throws Exception {
         TipoDocumento p = mapper.map(dto, TipoDocumento.class);
+        p.setEstado(true);
         TipoDocumento obj = service.registrar(p);
 
         //localhost:8080/TipoDocumentos/5
@@ -91,7 +92,9 @@ public class TipoDocumentoController {
         if(obj == null) {
             throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
         }
-        service.eliminar(id);
+        obj.setEstado(false);
+
+        service.modificar(obj);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
