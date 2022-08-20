@@ -34,7 +34,6 @@ public class TipoDocumentoController {
 
 
     @GetMapping
-    //@RequestMapping(value = "/" , method = RequestMethod.GET)
     public ResponseEntity<List<TipoDocumentoDTO>> listar() throws Exception {
         List<TipoDocumentoDTO> lista = service.listar().stream().map(p -> mapper.map(p, TipoDocumentoDTO.class)).collect(Collectors.toList());
 
@@ -54,11 +53,6 @@ public class TipoDocumentoController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-	/*@PostMapping
-	public ResponseEntity<Paciente> registrar(@RequestBody Paciente p) throws Exception {
-		Paciente obj = service.registrar(p);
-		return new ResponseEntity<>(obj, HttpStatus.CREATED);
-	}*/
 
     @PostMapping
     public ResponseEntity<Void> registrar(@Valid @RequestBody TipoDocumentoDTO dto) throws Exception {
@@ -66,7 +60,6 @@ public class TipoDocumentoController {
         p.setEstado(true);
         TipoDocumento obj = service.registrar(p);
 
-        //localhost:8080/TipoDocumentos/5
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdTipoDocumento()).toUri();
         return ResponseEntity.created(location).build();
     }
@@ -92,9 +85,8 @@ public class TipoDocumentoController {
         if(obj == null) {
             throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
         }
-        obj.setEstado(false);
+        service.eliminar(id);
 
-        service.modificar(obj);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

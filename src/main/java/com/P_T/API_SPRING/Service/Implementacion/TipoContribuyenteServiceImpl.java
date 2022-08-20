@@ -20,15 +20,6 @@ public class TipoContribuyenteServiceImpl extends CrudImpl<TipoContribuyente,Int
     }
 
 
-    @Override
-    public List<TipoContribuyente> listar() throws Exception {
-        return getRepo().findAll();
 
-    }
 
-    @Override
-    public List<TipoContribuyente> TIPO_CONTRIBUYENTE_LIST() throws Exception {
-
-        return null;
-    }
 }

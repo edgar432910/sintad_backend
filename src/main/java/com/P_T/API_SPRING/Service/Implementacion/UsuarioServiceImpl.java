@@ -32,7 +32,6 @@ public class UsuarioServiceImpl implements UserDetailsService {
         List<GrantedAuthority> roles = new ArrayList<>();
 
             roles.add(new SimpleGrantedAuthority("administrador"));
-//        GrantedAuthority rol = new SimpleGrantedAuthority("administrador");
 
         UserDetails ud = new User(usuario.getUsername(), usuario.getPassword(), usuario.isEstado(), true, true, true, roles);
 

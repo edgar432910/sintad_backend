@@ -26,13 +26,9 @@ public class TipoContribuyenteController {
     @Autowired
     private ModelMapper mapper;
 
-    @GetMapping("/prueba")
-    String Prueba(@RequestParam(defaultValue = "Valordefecto") String nombre){
-        return  "Hola "+ nombre;
-    }
+
 
     @GetMapping
-    //@RequestMapping(value = "/" , method = RequestMethod.GET)
     public ResponseEntity<List<TipoContribuyenteDTO>> listar() throws Exception {
         List<TipoContribuyenteDTO> lista = service.listar().stream().map(p -> mapper.map(p, TipoContribuyenteDTO.class)).collect(Collectors.toList());
 
@@ -52,11 +48,6 @@ public class TipoContribuyenteController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-	/*@PostMapping
-	public ResponseEntity<Paciente> registrar(@RequestBody Paciente p) throws Exception {
-		Paciente obj = service.registrar(p);
-		return new ResponseEntity<>(obj, HttpStatus.CREATED);
-	}*/
 
     @PostMapping
     public ResponseEntity<Void> registrar(@Valid @RequestBody TipoContribuyenteDTO dto) throws Exception {
@@ -64,7 +55,7 @@ public class TipoContribuyenteController {
         p.setEstado(true);
         TipoContribuyente obj = service.registrar(p);
 
-        //localhost:8080/TipoContribuyentes/5
+
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdTipoContribuyente()).toUri();
         return ResponseEntity.created(location).build();
     }
@@ -90,9 +81,9 @@ public class TipoContribuyenteController {
         if(obj == null) {
             throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
         }
-        obj.setEstado(false);
 
-        service.modificar(obj);
+        service.eliminar(id);
+
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

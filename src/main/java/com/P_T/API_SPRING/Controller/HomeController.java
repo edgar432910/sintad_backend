@@ -12,8 +12,4 @@ public class HomeController {
 
     }
 
-    @GetMapping("/prueba")
-    String Prueba(@RequestParam(defaultValue = "Valordefecto") String nombre){
-        return  "Hola "+ nombre;
-    }
 }

@@ -8,8 +8,6 @@ public class ExceptionResponse {
     private String mensaje;
     private String detalles;
 
-    public ExceptionResponse() {
-    }
 
     public ExceptionResponse(LocalDateTime fecha, String mensaje, String detalles) {
         this.fecha = fecha;

@@ -18,11 +18,11 @@ public class TipoDocumentoDTO {
     @NotBlank
     @Size( max = 100)
     private String nombre;
-    @NotNull
-    @NotBlank
+
+    @Size( max = 200)
     private String descripcion;
-//    @NotNull
-//    @NotBlank
-//    private Boolean estado;
+
+    @NotNull
+    private Boolean estado;
 
 }

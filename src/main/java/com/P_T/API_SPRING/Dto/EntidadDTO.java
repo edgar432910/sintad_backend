@@ -9,37 +9,35 @@ import javax.validation.constraints.Size;
 public class EntidadDTO {
     private Integer idEntidad;
 
-
-
     @NotNull
     private TipoDocumentoDTO tipoDocumento;
 
     @NotNull
+    @Size( max = 25)
     @NotBlank
     private String nroDocumento ;
 
     @NotNull
+    @Size( max = 100)
     @NotBlank
     private String razonSocial;
 
-    @NotNull
-    @NotBlank
+
+    @Size( max = 100)
     private String nombreComercial;
 
     @NotNull
     private TipoContribuyenteDTO tipoContribuyente;
 
     @NotNull
+    @Size( max = 250)
     @NotBlank
     private String direccion;
 
-    @NotNull
-    @NotBlank
-    @Size( max = 50)
+    @Size( max = 100)
     private String telefono;
 
-//    @NotNull
-//    @NotBlank
-//    private Boolean estado;
+    @NotNull
+    private Boolean estado;
 
 }

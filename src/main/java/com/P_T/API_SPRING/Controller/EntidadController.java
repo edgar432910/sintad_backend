@@ -53,11 +53,7 @@ public class EntidadController {
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-	/*@PostMapping
-	public ResponseEntity<Paciente> registrar(@RequestBody Paciente p) throws Exception {
-		Paciente obj = service.registrar(p);
-		return new ResponseEntity<>(obj, HttpStatus.CREATED);
-	}*/
+
 
     @PostMapping
     public ResponseEntity<Void> registrar(@Valid @RequestBody EntidadDTO dto) throws Exception {
@@ -65,7 +61,7 @@ public class EntidadController {
         p.setEstado(true);
         Entidad obj = service.registrar(p);
 
-        //localhost:8080/Entidads/5
+
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdEntidad()).toUri();
         return ResponseEntity.created(location).build();
     }
@@ -92,9 +88,8 @@ public class EntidadController {
         if(obj == null) {
             throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
         }
-        obj.setEstado(false);
+        service.eliminar(id);
 
-        service.modificar(obj);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

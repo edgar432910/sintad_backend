@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface ITipoContribuyenteService extends ICrud<TipoContribuyente,Integer>{
 
-    List<TipoContribuyente>TIPO_CONTRIBUYENTE_LIST () throws Exception;
 }
