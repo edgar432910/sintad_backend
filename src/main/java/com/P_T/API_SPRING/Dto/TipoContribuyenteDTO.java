@@ -10,12 +10,11 @@ import javax.validation.constraints.Size;
 public class TipoContribuyenteDTO {
 
     private Integer idTipoContribuyente;
-    @NotNull
-    @NotBlank
-    @Size( max = 50)
+    @NotNull(message = "{nombres.null}")
+    @Size( max = 50 , message = "{contribuyente_nombre.size}")
     private String nombre;
 
 
-    @NotNull
+    @NotNull(message = "{estados.null}")
     private Boolean estado;
 }

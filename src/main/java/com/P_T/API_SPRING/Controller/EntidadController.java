@@ -33,7 +33,6 @@ public class EntidadController {
 
 
     @GetMapping
-    //@RequestMapping(value = "/" , method = RequestMethod.GET)
     public ResponseEntity<List<EntidadDTO>> listar() throws Exception {
         List<EntidadDTO> lista = service.listar().stream().map(p -> mapper.map(p, EntidadDTO.class)).collect(Collectors.toList());
 

@@ -1,7 +1,10 @@
 package com.P_T.API_SPRING.Exception;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
 public class ExceptionResponse {
 
     private LocalDateTime fecha;
@@ -15,28 +18,10 @@ public class ExceptionResponse {
         this.detalles = detalles;
     }
 
+    public ExceptionResponse() {
 
-    public LocalDateTime getFecha() {
-        return fecha;
     }
 
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
-    }
 
-    public String getMensaje() {
-        return mensaje;
-    }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
-    public String getDetalles() {
-        return detalles;
-    }
-
-    public void setDetalles(String detalles) {
-        this.detalles = detalles;
-    }
 }

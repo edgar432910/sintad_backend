@@ -11,18 +11,16 @@ public class TipoDocumentoDTO {
 
     private Integer idTipoDocumento;
     @NotNull
-    @Size( max = 20)
-    @NotBlank
+    @Size( max = 20, message = "{documento_cod.size}")
     private String codigo;
-    @NotNull
-    @NotBlank
-    @Size( max = 100)
+    @NotNull(message = "{nombres.null}")
+    @Size( max = 100 , message = "{nombres.size}")
     private String nombre;
 
-    @Size( max = 200)
+    @Size( max = 200, message = "{documento_desc.size}")
     private String descripcion;
 
-    @NotNull
+    @NotNull(message = "{estados.null}")
     private Boolean estado;
 
 }
